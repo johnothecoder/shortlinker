@@ -25,6 +25,7 @@ Managing base requirements here rather than adding the admin burden of managing 
 5. Redirects are tracked
 6. `[Optional]` A one-time endpoint is available that allows update of the click record (e.g. if location tracking information is available)
 7. Click IDs should be UUID v4
+8. `[Optional]` Send a scheduled report of how many clicks there have been (probably weekly)
 
 # Tech Stack
 
