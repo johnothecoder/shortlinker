@@ -6,7 +6,7 @@
     </a>
 </p>
 
-[[![Tests](https://github.com/johnothecoder/shortlinker/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/johnothecoder/shortlinker/actions/workflows/tests.yml)]([![CI](https://github.com/johnothecoder/shortlinker/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/johnothecoder/shortlinker/actions/workflows/tests.yml))
+[[[![Tests](https://github.com/johnothecoder/shortlinker/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/johnothecoder/shortlinker/actions/workflows/tests.yml)]([![CI](https://github.com/johnothecoder/shortlinker/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/johnothecoder/shortlinker/actions/workflows/tests.yml))]([![CI](https://github.com/johnothecoder/shortlinker/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/johnothecoder/shortlinker/actions/workflows/ci.yml))
 
 **Description** A small Python/Django URL shortener and click tracker. 
 
