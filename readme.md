@@ -1,15 +1,27 @@
 # Short Linker (`shrtlnkr`)
 
-I do not foresee or intend this being widely adopted, if it gets a bunch of stars maybe I'll write some more useful documentation here. There is zero rocket science within this repository.
+A small Python/Django URL shortener and click tracker.
 
-You're welcome to use it, but you do so at your own risk. This isn't WordPress, Laravel, or Django; I'm just a boy, sitting in front of PyCharm, writing some code, and hoping it doesn't error.
+---
+
+Create short links through the Django admin, track every redirect, and optionally collect additional client-side metadata (such as browser-provided location) after the redirect.
+
+Originally written to support QR code signup tracking for posters, flyers and printed media.
+
+Temu Bitly for people who know a guy/girl/human/bot who can host a Python project for them.
+
+---
+
+I do not foresee or intend this being widely adopted, if it gets a bunch of stars maybe I'll write some more useful documentation here. 
+
+You're welcome to use it, but you do so at your own risk. This isn't WordPress, Laravel, or Django; I'm just a boy, sitting in front of PyCharm, writing some code, hoping his {Generic Sugar Free Energy Drink} is still cold.
 
 ## Why build shrtlnkr?
 
 1. Felt like it
 2. Does exactly what I want, how I want, 'cause I wrote it
 3. Seemed less effort than the investigative process of finding an alternative
-4. Didn't feel like doing `3`
+4. Didn't feel like doing `3`, spent 3 minutes, found 47 unmaintained repositories or didn't trust "we compiled it for you... just install it"
 5. Python/Django choice, basically `1`... love Laravel, didn't feel like paying for Nova (which is beautiful, tbf), Rails felt a bit much for this one
 
 # V1 Requirements
@@ -18,14 +30,14 @@ Managing base requirements here rather than adding the admin burden of managing 
 
 **KEY:** Not completed // ~~Completed Task~~
 
-1. Add a link with a custom unique `slug`
-2. Be able to remove/deactivate said link
-3. User visits `host.tld/c/{slug}` the user is redirected to the relevant destination
-4. Relevant destination has a unique identifier attached. Default parameter is `clickid`; this is configurable via `.env`
-5. Redirects are tracked
-6. `[Optional]` A one-time endpoint is available that allows update of the click record (e.g. if location tracking information is available)
-7. Click IDs should be UUID v4
-8. `[Optional]` Send a scheduled report of how many clicks there have been (probably weekly)
+- [ ] Add a link with a custom unique `slug`
+- [ ] Be able to remove/deactivate said link
+- [ ] User visits `host.tld/c/{slug}` the user is redirected to the relevant destination
+- [ ] Relevant destination has a unique identifier attached. Default parameter is `clickid`; this is configurable via `.env`
+- [ ] Redirects are tracked
+- [ ] Click IDs should be UUID v4
+- [ ] `[Optional]` A one-time endpoint is available that allows update of the click record (e.g. if location tracking information is available)
+- [ ] `[Optional]` Send a scheduled report of how many clicks there have been (probably weekly)
 
 # Tech Stack
 
