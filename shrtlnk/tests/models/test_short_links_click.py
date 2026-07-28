@@ -64,9 +64,7 @@ class ShortLinkClickTests(TestCase):
 
         self.short_link.delete()
 
-        self.assertFalse(
-            ShortLinkClick.objects.filter(pk=click_id).exists()
-        )
+        self.assertFalse(ShortLinkClick.objects.filter(pk=click_id).exists())
 
     def test_meta_data_defaults_to_empty_dictionary(self) -> None:
         click = self.create_click()

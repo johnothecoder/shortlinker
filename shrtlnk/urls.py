@@ -1,8 +1,9 @@
-from django.urls import include, path
+from django.urls import path
 
-from shrtlnk.services.url_transformation import DestinationTransformer
-from .views import ShortLinkHitView, home
 from shrtlnk.services.click_creation import ClickCreator
+from shrtlnk.services.url_transformation import DestinationTransformer
+
+from .views import ShortLinkHitView, home
 
 urlpatterns = [
     path(

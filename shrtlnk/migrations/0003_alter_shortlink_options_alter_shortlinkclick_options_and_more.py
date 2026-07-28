@@ -4,22 +4,27 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('shrtlnk', '0002_shortlinkclick_incoming_url_shortlinkclick_is_active_and_more'),
+        (
+            "shrtlnk",
+            "0002_shortlinkclick_incoming_url_shortlinkclick_is_active_and_more",
+        ),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='shortlink',
-            options={'verbose_name': 'Short Link', 'verbose_name_plural': 'Short Links'},
+            name="shortlink",
+            options={
+                "verbose_name": "Short Link",
+                "verbose_name_plural": "Short Links",
+            },
         ),
         migrations.AlterModelOptions(
-            name='shortlinkclick',
-            options={'verbose_name': 'Hit', 'verbose_name_plural': 'Hits'},
+            name="shortlinkclick",
+            options={"verbose_name": "Hit", "verbose_name_plural": "Hits"},
         ),
         migrations.RemoveField(
-            model_name='shortlinkclick',
-            name='is_active',
+            model_name="shortlinkclick",
+            name="is_active",
         ),
     ]

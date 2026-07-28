@@ -1,9 +1,15 @@
-from django.test import RequestFactory, TestCase
+from django.test import RequestFactory, TestCase, override_settings
 
 from shrtlnk.models import ShortLink, ShortLinkClick
 from shrtlnk.services.click_creation import ClickCreator
 
 
+@override_settings(
+    ALLOWED_HOSTS=[
+        "testserver",
+        "shrtlnkr.example",
+    ]
+)
 class ClickCreatorTests(TestCase):
     def setUp(self) -> None:
         self.factory = RequestFactory()
@@ -22,7 +28,8 @@ class ClickCreatorTests(TestCase):
                     "/example/",
                     REMOTE_ADDR="192.168.1.10",
                 )
-            ), "192.168.1.10"
+            ),
+            "192.168.1.10",
         )
 
     def test_get_client_ip_uses_first_forwarded_address(self) -> None:
@@ -34,7 +41,7 @@ class ClickCreatorTests(TestCase):
                     REMOTE_ADDR="192.168.1.10",
                 )
             ),
-            "203.0.113.10"
+            "203.0.113.10",
         )
 
     def test_get_client_ip_strips_whitespace(self) -> None:
@@ -45,7 +52,7 @@ class ClickCreatorTests(TestCase):
                     HTTP_X_FORWARDED_FOR="  203.0.113.10  , 10.0.0.1",
                 )
             ),
-            "203.0.113.10"
+            "203.0.113.10",
         )
 
     def test_get_client_ip_returns_none_when_no_ip_is_available(self) -> None:
@@ -96,6 +103,4 @@ class ClickCreatorTests(TestCase):
         click = self.creator.get_click(self.short_link, request)
 
         self.assertEqual(ShortLinkClick.objects.count(), 1)
-        self.assertTrue(
-            ShortLinkClick.objects.filter(pk=click.pk).exists()
-        )
+        self.assertTrue(ShortLinkClick.objects.filter(pk=click.pk).exists())

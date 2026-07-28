@@ -1,6 +1,6 @@
 from unittest.mock import Mock
 
-from django.http import HttpRequest, Http404
+from django.http import Http404, HttpRequest
 from django.test import RequestFactory, TestCase
 
 from shrtlnk.models import ShortLink, ShortLinkClick

@@ -58,9 +58,7 @@ class ShortLinkClickAdminTests(TestCase):
     def test_add_permission_is_denied(self) -> None:
         request = self.make_request()
 
-        self.assertFalse(
-            self.model_admin.has_add_permission(request)
-        )
+        self.assertFalse(self.model_admin.has_add_permission(request))
 
     def test_change_permission_is_allowed(self) -> None:
         request = self.make_request()
@@ -102,9 +100,7 @@ class ShortLinkClickAdminTests(TestCase):
         self.assertNotContains(response, "deletelink")
 
     def test_pretty_meta_data_formats_json(self) -> None:
-        rendered = str(
-            self.model_admin.pretty_meta_data(self.click)
-        )
+        rendered = str(self.model_admin.pretty_meta_data(self.click))
 
         self.assertIn("<pre", rendered)
         self.assertIn("&lt;script&gt;", rendered)
