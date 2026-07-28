@@ -62,8 +62,7 @@ class DestinationTransformerTests(TestCase):
 
     def test_preserves_destination_query_parameters(self) -> None:
         click = self.create_click(
-            "https://example.com/destination"
-            "?product=widgets&utm_source=website"
+            "https://example.com/destination?product=widgets&utm_source=website"
         )
         request = self.factory.get("/example/")
 
@@ -116,45 +115,29 @@ class DestinationTransformerTests(TestCase):
 
         self.assertEqual(
             destination,
-            (
-                "https://example.com/destination"
-                f"?click_id={click.id}"
-            ),
+            (f"https://example.com/destination?click_id={click.id}"),
         )
 
     def test_preserves_blank_destination_query_values(self) -> None:
-        click = self.create_click(
-            "https://example.com/destination?utm_content="
-        )
+        click = self.create_click("https://example.com/destination?utm_content=")
         request = self.factory.get("/example/")
 
         destination = self.transformer.final_destination(click, request)
 
         self.assertEqual(
             destination,
-            (
-                "https://example.com/destination"
-                "?utm_content="
-                f"&click_id={click.id}"
-            ),
+            (f"https://example.com/destination?utm_content=&click_id={click.id}"),
         )
 
     def test_preserves_url_fragment(self) -> None:
-        click = self.create_click(
-            "https://example.com/destination?foo=bar#pricing"
-        )
+        click = self.create_click("https://example.com/destination?foo=bar#pricing")
         request = self.factory.get("/example/")
 
         destination = self.transformer.final_destination(click, request)
 
         self.assertEqual(
             destination,
-            (
-                "https://example.com/destination"
-                "?foo=bar"
-                f"&click_id={click.id}"
-                "#pricing"
-            ),
+            (f"https://example.com/destination?foo=bar&click_id={click.id}#pricing"),
         )
 
     @override_settings(SHORTLINK_CLICK_ID_PARAM="tracking_reference")
@@ -166,8 +149,5 @@ class DestinationTransformerTests(TestCase):
 
         self.assertEqual(
             destination,
-            (
-                "https://example.com/destination"
-                f"?tracking_reference={click.id}"
-            ),
+            (f"https://example.com/destination?tracking_reference={click.id}"),
         )

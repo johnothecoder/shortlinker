@@ -1,24 +1,27 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic.base import View
-from .models import ShortLink
+
 from shrtlnk.services.click_creation import ClickCreator
 from shrtlnk.services.url_transformation import DestinationTransformer
+
+from .models import ShortLink
+
 
 def home(request: HttpRequest) -> HttpResponse:
     return render(request, "home.html")
 
-class ShortLinkHitView(View):
 
+class ShortLinkHitView(View):
     click_creator: ClickCreator | None = None
     destination_transformer: DestinationTransformer | None = None
 
     # I can explain this to you, but I can't understand it for you...
     def __init__(
-            self,
-            click_creator: ClickCreator,
-            destination_transformer: DestinationTransformer,
-            **kwargs
+        self,
+        click_creator: ClickCreator,
+        destination_transformer: DestinationTransformer,
+        **kwargs,
     ) -> None:
         super().__init__(**kwargs)
         self.click_creator = click_creator
@@ -26,7 +29,11 @@ class ShortLinkHitView(View):
 
     # Use the slug, get the ShortLink model, create a ShortLinkClick, figure out the
     # destination, save it, and send the user there
-    def get(self, request: HttpRequest, slug: str,) -> HttpResponse:
+    def get(
+        self,
+        request: HttpRequest,
+        slug: str,
+    ) -> HttpResponse:
 
         short_link = get_object_or_404(
             ShortLink,

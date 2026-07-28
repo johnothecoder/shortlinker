@@ -1,9 +1,10 @@
-from django.db import models
-from django.contrib.postgres.indexes import GinIndex
-from django.core.validators import MinValueValidator, MaxValueValidator
-from django.db.models import F
-from django.db import transaction
 import uuid
+
+from django.contrib.postgres.indexes import GinIndex
+from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db import models, transaction
+from django.db.models import F
+
 
 # This is a link, which is short
 class ShortLink(models.Model):
@@ -31,6 +32,7 @@ class ShortLink(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.slug})"
+
 
 # A click, which belongs to a link, which is short
 class ShortLinkClick(models.Model):
@@ -67,11 +69,15 @@ class ShortLinkClick(models.Model):
         validators=[MinValueValidator(0)],
         help_text="Estimated accuracy radius in metres",
     )
-    location_captured_at = models.DateTimeField(null=True, blank=True,)
+    location_captured_at = models.DateTimeField(
+        null=True,
+        blank=True,
+    )
     # Ah yes, "NoSQL" for when the schema description is "some data, I guess, probably"
     meta_data = models.JSONField(default=dict, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
     class Meta:
         indexes = [
             # Someone, somewhere, will maybe do a query one day and go... aw, that's nice...

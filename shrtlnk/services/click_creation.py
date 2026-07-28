@@ -2,6 +2,7 @@ from django.http.request import HttpRequest
 
 from shrtlnk.models import ShortLink, ShortLinkClick
 
+
 # ShortLinkClick Creator...
 class ClickCreator:
     def get_click(self, short_link: ShortLink, request: HttpRequest) -> ShortLinkClick:
@@ -18,8 +19,8 @@ class ClickCreator:
 
     @staticmethod
     def get_client_ip(request: HttpRequest) -> str | None:
-        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
         if x_forwarded_for:
             return x_forwarded_for.split(",")[0].strip()
 
-        return request.META.get('REMOTE_ADDR')
+        return request.META.get("REMOTE_ADDR")

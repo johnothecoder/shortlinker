@@ -4,26 +4,25 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('shrtlnk', '0001_initial'),
+        ("shrtlnk", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='shortlinkclick',
-            name='incoming_url',
-            field=models.URLField(default=''),
+            model_name="shortlinkclick",
+            name="incoming_url",
+            field=models.URLField(default=""),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='shortlinkclick',
-            name='is_active',
+            model_name="shortlinkclick",
+            name="is_active",
             field=models.BooleanField(default=True),
         ),
         migrations.AddField(
-            model_name='shortlinkclick',
-            name='outbound_url',
+            model_name="shortlinkclick",
+            name="outbound_url",
             field=models.URLField(blank=True, null=True),
         ),
     ]
