@@ -6,6 +6,8 @@
     </a>
 </p>
 
+[![Tests](https://github.com/johnothecoder/shortlinker/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/johnothecoder/shortlinker/actions/workflows/tests.yml)
+
 **Description** A small Python/Django URL shortener and click tracker. 
 
 **License** Open source on an [MIT license](license.md)
