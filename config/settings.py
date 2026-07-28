@@ -133,3 +133,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# When we redirect, what should the parameter be called? click_id as default but maybe you need something else
+# If so, do it in the env : SHORTLINK_CLICK_ID_PARAM
+SHORTLINK_CLICK_ID_PARAM = os.getenv(
+    "SHORTLINK_CLICK_ID_PARAM",
+    "click_id",
+)

@@ -25,6 +25,10 @@ class ShortLink(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        verbose_name = "Short Link"
+        verbose_name_plural = "Short Links"
+
     def __str__(self):
         return f"{self.name} ({self.slug})"
 
@@ -32,6 +36,8 @@ class ShortLink(models.Model):
 class ShortLinkClick(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     link = models.ForeignKey(ShortLink, on_delete=models.CASCADE, related_name="clicks")
+    incoming_url = models.URLField()
+    outbound_url = models.URLField(blank=True, null=True)
     # In some ungodly universe maybe IP lookup fails
     ip_address = models.GenericIPAddressField(blank=True, null=True)
     # Primarily this platform is for poster QR code scanning, I'm expecting the client to ask for location
@@ -74,11 +80,15 @@ class ShortLinkClick(models.Model):
                 name="click_meta_data_gin",
             ),
         ]
+        verbose_name = "Hit"
+        verbose_name_plural = "Hits"
 
-    # Yes, I could've used a signal...
+    # Yes, I could've used a signal and done all the Redis and things...
     # But in the immortal words of Sgt Turner:
     # "You sure you wanna process all this lot? My pen's running out."
     # - Hot Fuzz (2007)
+    # Seriously though, for low scale, this is fine. At high scale maybe should've
+    # just sprung for some SaaS instead
     def save(self, *args, **kwargs):
         is_new = self._state.adding
         with transaction.atomic():

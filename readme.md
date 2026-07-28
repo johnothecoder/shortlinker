@@ -30,14 +30,18 @@ Managing base requirements here rather than adding the admin burden of managing 
 
 **KEY:** Not completed // ~~Completed Task~~
 
-- [ ] Add a link with a custom unique `slug`
-- [ ] Be able to remove/deactivate said link
-- [ ] User visits `host.tld/c/{slug}` the user is redirected to the relevant destination
-- [ ] Relevant destination has a unique identifier attached. Default parameter is `clickid`; this is configurable via `.env`
-- [ ] Redirects are tracked
-- [ ] Click IDs should be UUID v4
+- [x] Add a link with a custom unique `slug`
+- [x] Be able to remove/deactivate said link
+- [x] User visits `host.tld/c/{slug}` the user is redirected to the relevant destination
+- [x] Relevant destination has a unique identifier attached. Default parameter is `clickid`; this is configurable via `.env`
+- [x] Redirects are tracked
+- [x] Click IDs should be UUID v4
 - [ ] `[Optional]` A one-time endpoint is available that allows update of the click record (e.g. if location tracking information is available)
 - [ ] `[Optional]` Send a scheduled report of how many clicks there have been (probably weekly)
+- [ ] Landing page for users hitting the root domain
+- [ ] Friendly 404 handling
+- [ ] Admin Dashboard of some description to give an overview
+- [x] Allow Query String Proxy 
 
 # Tech Stack
 
