@@ -1,7 +1,6 @@
 from django.urls import path
 
 from shrtlnk.services.url_transformation import DestinationTransformer
-from . import views
 from .views import ShortLinkHitView
 from shrtlnk.services.click_creation import ClickCreator
 

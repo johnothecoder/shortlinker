@@ -11,7 +11,7 @@ class ShortLinkHitView(View):
     destination_transformer: DestinationTransformer | None = None
 
     # I can explain this to you, but I can't understand it for you...
-    def __init(
+    def __init__(
             self,
             click_creator: ClickCreator,
             destination_transformer: DestinationTransformer,

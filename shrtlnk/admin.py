@@ -2,7 +2,7 @@ import json
 
 from django.contrib import admin
 from django.http import HttpRequest
-from django.utils.html import format_html, escape
+from django.utils.html import escape
 from django.utils.safestring import mark_safe
 
 from shrtlnk.models import ShortLink, ShortLinkClick
@@ -25,6 +25,8 @@ class ShortLinkClickAdmin(admin.ModelAdmin):
         "link",
         "ip_address",
         "pretty_meta_data",
+        "incoming_url",
+        "outbound_url",
         "created_at",
     )
     fields = (
