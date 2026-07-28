@@ -1,9 +1,9 @@
-from django.test import RequestFactory, TestCase
+from django.test import RequestFactory, TestCase, override_settings
 
 from shrtlnk.models import ShortLink, ShortLinkClick
 from shrtlnk.services.click_creation import ClickCreator
 
-
+@override_settings(ALLOWED_HOSTS=["shrtlnkr.example"])
 class ClickCreatorTests(TestCase):
     def setUp(self) -> None:
         self.factory = RequestFactory()
