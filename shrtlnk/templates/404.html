@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Page not found | shrtlnkr{% endblock %}
+
+{% block meta_description %}
+The requested page or short link could not be found.
+{% endblock %}
+
+{% block content %}
+    <section class="error-page text-center">
+        <h1 class="error-code"><code>404 - Not Found</code></h1>
+
+        <h1>This link doesn't go anywhere</h1>
+
+        <p>
+            It may have been disabled, deleted, mistyped,
+            or never existed in the first place.
+        </p>
+    </section>
+{% endblock %}

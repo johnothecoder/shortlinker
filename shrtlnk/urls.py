@@ -1,7 +1,7 @@
-from django.urls import path
+from django.urls import include, path
 
 from shrtlnk.services.url_transformation import DestinationTransformer
-from .views import ShortLinkHitView
+from .views import ShortLinkHitView, home
 from shrtlnk.services.click_creation import ClickCreator
 
 urlpatterns = [
@@ -13,4 +13,5 @@ urlpatterns = [
         ),
         name="follow-short-link",
     ),
+    path("", home, name="home"),
 ]

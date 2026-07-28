@@ -1,6 +1,22 @@
 # Short Linker (`shrtlnkr`)
 
-A small Python/Django URL shortener and click tracker.
+<p align="center">
+    <a href="https://jtclabs.com/projects/shrtlnkr">
+        <img src="shrtlnk/static/shrtlnk/images/shrtlnkr.png" alt="shrtlnkr" width="250">
+    </a>
+</p>
+
+
+
+**Description** A small Python/Django URL shortener and click tracker. 
+
+**License** Open source on an [MIT license](license.md)
+
+**Base Tech** [Python - Django Framework](https://www.djangoproject.com/) and [PostgreSQL](https://www.postgresql.org/)
+
+**Author** [JohnoTheCoder](https://github.com/johnothecoder) @ [JTC Labs](https://jtclabs.com)
+
+**More Info** [shrtlnkr](https://jtclabs.com/projects/shrtlnkr)
 
 ---
 
@@ -38,37 +54,7 @@ Managing base requirements here rather than adding the admin burden of managing 
 - [x] Click IDs should be UUID v4
 - [ ] `[Optional]` A one-time endpoint is available that allows update of the click record (e.g. if location tracking information is available)
 - [ ] `[Optional]` Send a scheduled report of how many clicks there have been (probably weekly)
-- [ ] Landing page for users hitting the root domain
-- [ ] Friendly 404 handling
+- [x] Landing page for users hitting the root domain
+- [x] Friendly 404 handling
 - [ ] Admin Dashboard of some description to give an overview
 - [x] Allow Query String Proxy 
-
-# Tech Stack
-
-1. Python 3 & Django Framework 
-2. PostgreSQL
-3. Check `requirements.txt`
-
-# License
-
-MIT License
-
-Copyright (c) 2026 Matt Johnson t/a JohnoTheCoder & JTC Labs
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.

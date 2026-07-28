@@ -1,0 +1,15 @@
+body {
+
+}
+
+.site-header {
+    text-align: center;
+}
+.site-logo img {
+    max-width: 20%;
+    max-height: 40dvh;
+}
+
+footer {
+    text-align: center;
+}

@@ -1,9 +1,12 @@
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic.base import View
 from .models import ShortLink
 from shrtlnk.services.click_creation import ClickCreator
 from shrtlnk.services.url_transformation import DestinationTransformer
+
+def home(request: HttpRequest) -> HttpResponse:
+    return render(request, "home.html")
 
 class ShortLinkHitView(View):
 
